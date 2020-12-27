@@ -288,7 +288,9 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('home')}}">Home</a>
+                <a class="nav-link" href="{{route('home')}}">
+                  <span class="mr-2 d-none d-lg-inline text-gray-900 big">Home</span>
+              </a>
             </li>
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -383,6 +385,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{asset('js/sb-admin-2.js')}}"></script>
+  @yield('scripts')
 
 </body>
 
