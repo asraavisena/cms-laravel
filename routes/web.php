@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show'])->name('post');
 
+// AUTHORIZATION
 Route::middleware('auth')->group(function(){
     Route::get('/admin', [App\Http\Controllers\AdminsController::class, 'index'])->name('admin.index');
 
@@ -29,3 +30,5 @@ Route::middleware('auth')->group(function(){
     Route::delete('/admin/posts/{post}/delete', [App\Http\Controllers\PostController::class, 'destroy'])->name('post.destroy');
     Route::patch('/admin/posts/{post}/update', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
 });
+// EXAMPLE ANOTHER AUTHORIZATION
+// Route::get('/admin/posts/{post}/edit', [App\Http\Controllers\PostController::class, 'edit'])->middleware('can:view,post')->name('post.edit');

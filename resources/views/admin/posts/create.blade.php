@@ -1,6 +1,9 @@
 <x-admin-master>
     @section('content')
         <h1>Create a post</h1>
+        @if(session('post-create-fail-message'))
+        <div class="alert alert-danger">{{session('post-create-fail-message')}}</div>
+        @endif
     <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
