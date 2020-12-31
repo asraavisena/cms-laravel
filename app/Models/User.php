@@ -18,7 +18,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'username',
         'name',
+        'avatar',
         'email',
         'password',
     ];
@@ -41,6 +43,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Only for educational for mutators
+    // public function setPasswordAttribute($value){
+    //     $this->attributes['password'] = bcrypt($value);
+    // }
+
+    public function getAvatarAttribute($value){
+        return asset($value);
+    }
 
     public function posts(){
         return $this->hasMany('App\Models\Post');
