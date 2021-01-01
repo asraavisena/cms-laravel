@@ -70,6 +70,7 @@
           
          
     @endsection
+    
     @section('scripts')
       <!-- Page level plugins -->
     <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
