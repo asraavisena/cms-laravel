@@ -41,3 +41,7 @@ Route::middleware('auth')->group(function(){
 Route::middleware(['role:Admin', 'auth'])->group(function(){
     Route::get('admin/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 });
+
+Route::middleware(['auth', 'can:view,user'])->group(function(){
+    Route::get('admin/users/{user}/profile', [App\Http\Controllers\UserController::class, 'show'])->name('user.profile.show');
+});
