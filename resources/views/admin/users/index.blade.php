@@ -1,6 +1,6 @@
 <x-admin-master>
     @section('content')
-        <h1>Users</h1>
+        <h1 class="h3 mb-4 text-gray-800">Users</h1>
         @if(session('user-deleted'))
           <div class="alert alert-danger">{{session('user-deleted')}}</div>
         @endif

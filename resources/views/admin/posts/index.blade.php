@@ -1,6 +1,6 @@
 <x-admin-master>
     @section('content')
-        <h1>All Posts</h1>
+        <h1 class="h3 mb-4 text-gray-800">All Posts</h1>
         @if(session('post-destroy-message'))        
           <div class="alert alert-danger">{{session('post-destroy-message')}}</div>
           @elseif(session('post-created-message'))
