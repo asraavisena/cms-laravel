@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Role;
 use Illuminate\Support\Str;
+use App\Models\Role;
 
 class RoleController extends Controller
 {
     //
+
+    
     public function index(){
         $roles = Role::all();
         return view('admin.roles.index', ['roles' => $roles]);
@@ -23,6 +25,12 @@ class RoleController extends Controller
             'slug'=>Str::of(Str::lower(request('name')))->slug('_'),
 
         ]);
+        return back();
+    }
+
+    public function destroy(Role $role){
+        $role->delete();
+        session()->flash('role-delete', 'Deleted Role: ' . $role->name);
         return back();
     }
 }
