@@ -2,7 +2,9 @@
     @section('content')
     <h1 class="h3 mb-4 text-gray-800">Roles</h1>
     @if(session('role-delete'))        
-          <div class="alert alert-danger">{{session('role-delete')}}</div>
+        <div class="alert alert-danger">{{session('role-delete')}}</div>
+    @elseif(session('role-updated'))
+    <div class="alert alert-success">{{session('role-updated')}}</div>
     @endif
 
     <div class="row">
@@ -51,7 +53,7 @@
                     @foreach($roles as $role)
                     <tr>
                         <td>{{$role->id}}</td>
-                        <td>{{$role->name}}</td>
+                        <td><a href="{{route('roles.edit', $role->id)}}">{{$role->name}}</a></td>
                         <td>{{$role->slug}}</td>
                         <td>
                         <form method="POST" action="{{route('roles.destroy', $role->id)}}" enctype="multipart/form-data">
